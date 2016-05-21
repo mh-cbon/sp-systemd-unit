@@ -1,6 +1,6 @@
 {
   "name": "@mh-cbon/sp-systemd-unit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Stream parser for systemd unit files.",
   "main": "index.js",
   "scripts": {
