@@ -31,8 +31,6 @@ function spSystemdUnit () {
       }
     }
     cb(null, ret)
-  }, function flush(cb) {
-    cb();
   });
   return miss.pipeline.obj(split(), stream);
 }
@@ -93,13 +91,9 @@ spSystemdUnit.parseFile = function (fPath, options) {
   })
 
   return fs.createReadStream(fPath)
-  .on('error', function (err){ console.log('fs.error', err) })
   .pipe(spSystemdUnit())
-  .on('error', function (err){ console.log('spSystemdUnit.error', err) })
   .pipe(spSystemdUnit.objParser())
-  .on('error', function (err){ console.log('objParser.error', err) })
   .pipe(stream)
-  .on('error', function (err){ console.log('parseFile.error', err) })
 }
 
 module.exports = spSystemdUnit;
